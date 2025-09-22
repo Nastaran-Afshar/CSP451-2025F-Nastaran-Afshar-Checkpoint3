@@ -1,0 +1,20 @@
+{
+  "name": "csp451_2025f_nastaran_afshar_checkpoint3",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "test": "jest --ci --coverage",
+    "build": "node ./scripts/build.js || echo \"Replace with your real build (e.g., vite build)\""
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "eslint": "^9.12.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.3"
+  }
+}
