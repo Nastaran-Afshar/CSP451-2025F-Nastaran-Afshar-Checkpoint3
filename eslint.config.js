@@ -1,29 +1,22 @@
-// eslint.config.cjs (Flat config for ESLint v9)
-const js = require("@eslint/js");
-const pluginImport = require("eslint-plugin-import");
+// eslint.config.js — Flat config for ESLint v9 (ESM)
+import js from '@eslint/js';
+import pluginImport from 'eslint-plugin-import';
 
-module.exports = [
-  // Ignore build/artifact dirs
-  { ignores: ["node_modules/**", "dist/**", "coverage/**"] },
-
-  // Base recommended rules
+export default [
+  { ignores: ['node_modules/**', 'dist/**', 'coverage/**'] },
   js.configs.recommended,
-
-  // Project rules
   {
-    files: ["**/*.js", "**/*.mjs", "**/*.cjs"],
+    files: ['**/*.js', '**/*.mjs', '**/*.cjs'],
     languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module"
+      ecmaVersion: 'latest',
+      sourceType: 'module',
     },
     plugins: {
-      import: pluginImport
+      import: pluginImport,
     },
     rules: {
-      // add/adjust rules as you like
-      "no-unused-vars": "warn",
-      // we turned this off earlier; keep it off if you don’t use TS path maps
-      "import/no-unresolved": "off"
-    }
-  }
+      'no-unused-vars': 'warn',
+      'import/no-unresolved': 'off',
+    },
+  },
 ];
