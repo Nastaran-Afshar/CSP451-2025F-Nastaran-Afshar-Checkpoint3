@@ -1,9 +1,11 @@
 name: "Node setup & install"
 description: "Sets up Node and installs deps with cache"
+
 inputs:
   node-version:
     description: "Node.js version"
     required: true
+
 runs:
   using: "composite"
   steps:
@@ -11,18 +13,8 @@ runs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ inputs.node-version }}
-        cache: "npm"
-      name: Debug files
-      shell: bash
-      run: |
-        pwd
-        node -v
-        npm -v
-        ls -la
-        echo "==== package.json ===="
-        cat package.json
-        echo "==== package-lock.json (first 40 lines) ===="
-        head -n 40 package-lock.json
+        cache: npm
+
     - name: Install dependencies
       shell: bash
       run: |
