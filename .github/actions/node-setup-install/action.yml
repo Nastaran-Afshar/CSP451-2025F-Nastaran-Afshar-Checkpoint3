@@ -1,5 +1,5 @@
 name: "Node setup & install"
-description: "Sets up Node and installs deps with cache"
+description: "Sets up Node and installs dependencies with cache"
 
 inputs:
   node-version:
@@ -16,6 +16,5 @@ runs:
         cache: npm
 
     - name: Install dependencies
+      run: npm install
       shell: bash
-      run: |
-        npm install
