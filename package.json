@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint . --config eslint.config.js",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "test": "jest --ci --coverage",
