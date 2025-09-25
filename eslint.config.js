@@ -1,21 +1,15 @@
-// eslint.config.js — Flat config for ESLint v9 (ESM)
+// eslint.config.js
 import js from '@eslint/js';
 import pluginImport from 'eslint-plugin-import';
 
 export default [
-  // Ignore generated & legacy config files
   { ignores: ['node_modules/**', 'dist/**', 'coverage/**', '.eslintrc.cjs'] },
-
-  // Base recommended rules
   js.configs.recommended,
 
-  // Default: ESM project code
+  // app code (ESM)
   {
     files: ['**/*.js', '**/*.mjs'],
-    languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
-    },
+    languageOptions: { ecmaVersion: 'latest', sourceType: 'module' },
     plugins: { import: pluginImport },
     rules: {
       'no-unused-vars': 'warn',
@@ -23,24 +17,19 @@ export default [
     },
   },
 
-  // CommonJS files (*.cjs): allow module/require globals
+  // CommonJS config files (*.cjs)
   {
     files: ['**/*.cjs'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'commonjs',
-      globals: {
-        module: 'readonly',
-        require: 'readonly',
-        __dirname: 'readonly',
-        __filename: 'readonly',
-      },
+      globals: { module: 'readonly', require: 'readonly', __dirname: 'readonly', __filename: 'readonly' },
     },
   },
 
-  // Jest test files: allow test/expect/describe/etc.
+  // ✅ Jest test files (.js and .mjs): define Jest globals
   {
-    files: ['tests/**/*.js', '**/*.test.js'],
+    files: ['tests/**/*.js', '**/*.test.js', 'tests/**/*.mjs', '**/*.test.mjs'],
     languageOptions: {
       globals: {
         test: 'readonly',
