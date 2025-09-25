@@ -1,70 +1,70 @@
-const js = require("@eslint/js");
-const pluginImport = require("eslint-plugin-import");
+// eslint.config.js  — ESLint v9 flat config (ESM)
+import js from '@eslint/js';
+import pluginImport from 'eslint-plugin-import';
 
-module.exports = [
-  // Ignore generated/legacy
-  { ignores: ["node_modules/**", "dist/**", "coverage/**", ".eslintrc.cjs"] },
+export default [
+  // ✅ never lint the config file itself
+  { ignores: ['eslint.config.js', 'node_modules/**', 'dist/**', 'coverage/**'] },
 
   // Base recommended rules
   js.configs.recommended,
 
-  // App source is CommonJS now
+  // App source: CommonJS
   {
-    files: ["src/**/*.js"],
+    files: ['src/**/*.js'],
     languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "commonjs",
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       globals: {
-        module: "readonly",
-        require: "readonly",
-        __dirname: "readonly",
-        __filename: "readonly",
+        module: 'readonly',
+        require: 'readonly',
+        __dirname: 'readonly',
+        __filename: 'readonly',
       },
     },
     plugins: { import: pluginImport },
     rules: {
-      "no-unused-vars": "warn",
-      // keep this off if you don't use TS path maps
-      "import/no-unresolved": "off",
+      'no-unused-vars': 'warn',
+      'import/no-unresolved': 'off',
     },
   },
 
-  // Jest tests (CommonJS + Jest globals)
+  // Tests: CommonJS + Jest globals
   {
-    files: ["tests/**/*.js", "**/*.test.js"],
+    files: ['tests/**/*.js', '**/*.test.js'],
     languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "commonjs",
+      ecmaVersion: 'latest',
+      sourceType: 'commonjs',
       globals: {
-        // Jest globals
-        test: "readonly",
-        it: "readonly",
-        expect: "readonly",
-        describe: "readonly",
-        beforeAll: "readonly",
-        afterAll: "readonly",
-        beforeEach: "readonly",
-        afterEach: "readonly",
-        // CJS globals sometimes used in tests
-        require: "readonly",
-        module: "readonly",
-        __dirname: "readonly",
-        __filename: "readonly",
+        // Jest
+        test: 'readonly',
+        it: 'readonly',
+        expect: 'readonly',
+        describe: 'readonly',
+        beforeAll: 'readonly',
+        afterAll: 'readonly',
+        beforeEach: 'readonly',
+        afterEach: 'readonly',
+        // CJS
+        require: 'readonly',
+        module: 'readonly',
+        __dirname: 'readonly',
+        __filename: 'readonly',
       },
     },
   },
 
-  // Any *.cjs files (if present)
+  // Any *.cjs files (if you keep some)
   {
-    files: ["**/*.cjs"],
+    files: ['**/*.cjs'],
     languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "commonjs",
+      ecmaVersion: 'latest',
+      sourceType: 'commonjs',
       globals: {
-        module: "readonly",
-        require: "readonly",
-        __dirname: "readonly",
-        __filename: "readonly",
+        module: 'readonly',
+        require: 'readonly',
+        __dirname: 'readonly',
+        __filename: 'readonly',
       },
     },
   },
