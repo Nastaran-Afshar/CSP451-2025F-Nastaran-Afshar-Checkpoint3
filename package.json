@@ -1,7 +1,6 @@
 {
   "name": "csp451_2025f_nastaran_afshar_checkpoint3",
   "version": "1.0.0",
-  "type": "module",
   "scripts": {
     "lint": "eslint . --config eslint.config.js",
     "format": "prettier . --write",
