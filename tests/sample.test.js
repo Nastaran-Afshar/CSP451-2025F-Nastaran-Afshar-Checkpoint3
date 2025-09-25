@@ -1,6 +1,5 @@
-const { add } = require("./math");
+const { add } = require("../src/math");
 
-console.log("2 + 3 =", add(2, 3));
-
-// export anything if you need to
-module.exports = {};
+test("math works", () => {
+  expect(add(2, 3)).toBe(5);
+});
