@@ -23,7 +23,12 @@ export default [
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'commonjs',
-      globals: { module: 'readonly', require: 'readonly', __dirname: 'readonly', __filename: 'readonly' },
+      globals: {
+        module: 'readonly',
+        require: 'readonly',
+        __dirname: 'readonly',
+        __filename: 'readonly',
+      },
     },
   },
 
