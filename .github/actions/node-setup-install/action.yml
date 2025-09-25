@@ -1,13 +1,13 @@
-name: "Node setup & install"
-description: "Sets up Node and installs dependencies with cache"
+name: 'Node setup & install'
+description: 'Sets up Node and installs dependencies with cache'
 
 inputs:
   node-version:
-    description: "Node.js version"
+    description: 'Node.js version'
     required: true
 
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - name: Setup Node
       uses: actions/setup-node@v4
