@@ -1,7 +1,10 @@
 module.exports = {
   testEnvironment: 'node',
   collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.js'],
+  collectCoverageFrom: [
+    'src/**/*.js',
+    '!src/index.js', // ⬅️ exclude the entry file from coverage
+  ],
   coverageDirectory: 'coverage',
   coverageReporters: ['text-summary', 'lcov'],
   coverageThreshold: {
