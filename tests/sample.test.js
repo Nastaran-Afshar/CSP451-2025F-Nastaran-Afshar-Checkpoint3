@@ -1,5 +1,5 @@
-const { add } = require("../src/math");
+const { add } = require('../src/math');
 
-test("math works", () => {
+test('math works', () => {
   expect(add(2, 3)).toBe(5);
 });
