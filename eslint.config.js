@@ -34,7 +34,7 @@ export default [
 
   // ✅ Jest test files (.js and .mjs): define Jest globals
   {
-    files: ['tests/**/*.js', '**/*.test.js', 'tests/**/*.mjs', '**/*.test.mjs'],
+    files: ['tests/**/*.js', '**/*.test.js'],
     languageOptions: {
       globals: {
         test: 'readonly',

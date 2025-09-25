@@ -1,13 +1,5 @@
-// jest.config.cjs
 module.exports = {
   testEnvironment: 'node',
-  // No transforms needed for plain JS when using --experimental-vm-modules
-  transform: {},
-
-  // Find .mjs or .js tests
-  testMatch: ['**/*.test.mjs', '**/*.test.js'],
-
-  // Coverage
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.js'],
   coverageDirectory: 'coverage',
