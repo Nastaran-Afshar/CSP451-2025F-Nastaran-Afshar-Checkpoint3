@@ -7,8 +7,7 @@
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "test": "jest --ci --coverage",
-    "build": "node ./scripts/build.js || echo \"Replace with your real build (e.g., vite build)\""
-  },
+    "build": "rm -rf dist && mkdir -p dist && cp -r public/* dist/"},
   "devDependencies": {
     "@eslint/js": "^9.36.0",
     "@types/jest": "^29.5.12",
