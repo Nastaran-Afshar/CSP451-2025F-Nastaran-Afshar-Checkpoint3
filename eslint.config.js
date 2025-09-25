@@ -11,9 +11,7 @@ export default [
       ecmaVersion: 'latest',
       sourceType: 'module',
     },
-    plugins: {
-      import: pluginImport,
-    },
+    plugins: { import: pluginImport },
     rules: {
       'no-unused-vars': 'warn',
       'import/no-unresolved': 'off',
